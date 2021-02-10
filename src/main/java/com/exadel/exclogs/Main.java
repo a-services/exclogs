@@ -54,7 +54,7 @@ public class Main implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        out.println("-".repeat(80));
+        out.println("-------------------------------------");
 
         /* If the folder for logs is not found, create it.
          */
@@ -137,7 +137,7 @@ public class Main implements Callable<Integer> {
             plain.close();
             out.println("File saved: " + plainLogFile);
         }
-        out.println("-".repeat(80));
+        out.println("-------------------------------------");
         return 0;
     }
 

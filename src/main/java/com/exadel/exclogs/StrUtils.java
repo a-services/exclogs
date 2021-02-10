@@ -17,7 +17,7 @@ public class StrUtils {
      * Save string to file.
      */
     static void saveStr(String fname, String text) throws IOException {
-        Files.writeString(Paths.get(fname), text);
+        Files.write(Paths.get(fname), text.getBytes());
     }
 
     /**
@@ -36,7 +36,7 @@ public class StrUtils {
      */
     static String loadStr(String fname) {
         try {
-            return Files.readString(Paths.get(fname));
+            return new String(Files.readAllBytes(Paths.get(fname)));
         } catch (IOException e) {
             return null;
         }
