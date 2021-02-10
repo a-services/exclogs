@@ -16,3 +16,16 @@ dependencies {
     implementation 'info.picocli:picocli:4.6.1'
     testImplementation     'junit:junit:4.13'
 }
+
+jar {
+    baseName = 'exclogs'
+
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+
+    from {
+         configurations.compileClasspath.filter{ it.exists() }
+            .collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
