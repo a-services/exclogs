@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+    group = 'com.exadel'
+
+mainClassName = 'com.exadel.exclogs.Main'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'info.picocli:picocli:4.6.1'
+    testImplementation     'junit:junit:4.13'
+}

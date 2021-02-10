@@ -1,0 +1,19 @@
+= exclogs: Get logs from `exc` utility.
+
+https://github.com/a-services/exc
+
+----
+Usage: exclogs [-chvV] [-l1=<startLine>] [-l2=<endLine>] [-o=<outFolder>]
+               [-p=<plainLogFile>] <logCode> <serverUrl>
+      <logCode>              Log code.
+      <serverUrl>            Server URL before /exc.
+  -c, --cache                Use cache.
+  -h, --help                 Show this help message and exit.
+      -l1, --start=<startLine>
+                             Start line.
+      -l2, --end=<endLine>   End line.
+  -o, --out=<outFolder>      Output folder.
+  -p, --plain=<plainLogFile> Plain log file.
+  -v, --verbose              Verbose mode.
+  -V, --version              Print version information and exit.
+----

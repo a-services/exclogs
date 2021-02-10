@@ -1,0 +1,11 @@
+README.html
+**/.DS_Store
+.gradle
+.settings
+.classpath
+.project
+
+/.nb-gradle/
+/.vscode/
+/build/
+/bin/
