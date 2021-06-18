@@ -1,7 +1,5 @@
 = exclogs: Get logs from `exc` utility.
 
-https://github.com/a-services/exc
-
 ----
 Usage: exclogs [-chvV] [-l1=<startLine>] [-l2=<endLine>] [-o=<outFolder>]
                [-p=<plainLogFile>] <logCode> <serverUrl>
@@ -13,7 +11,10 @@ Usage: exclogs [-chvV] [-l1=<startLine>] [-l2=<endLine>] [-o=<outFolder>]
                              Start line.
       -l2, --end=<endLine>   End line.
   -o, --out=<outFolder>      Output folder.
-  -p, --plain=<plainLogFile> Plain log file.
+  -p, --plain=<plainLogFile> Output log file in plain text format.
   -v, --verbose              Verbose mode.
   -V, --version              Print version information and exit.
 ----
+
+See also::
+- link:https://github.com/a-services/exc[exc]

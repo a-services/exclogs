@@ -42,7 +42,7 @@ public class Main implements Callable<Integer> {
     @Option(names = { "-c", "--cache" }, description = "Use cache.")
     boolean useCache;
 
-    @Option(names = { "-p", "--plain" }, description = "Plain log file.")
+    @Option(names = { "-p", "--plain" }, description = "Output log file in plain text format.")
     String plainLogFile;
 
     @Option(names = { "-v", "--verbose" }, description = "Verbose mode.")

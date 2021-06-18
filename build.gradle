@@ -17,7 +17,7 @@ dependencies {
     testImplementation     'junit:junit:4.13'
 }
 
-jar {
+task fatjar(type: Jar) {
     baseName = 'exclogs'
 
     manifest {
