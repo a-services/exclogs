@@ -28,4 +28,5 @@ task fatjar(type: Jar) {
          configurations.compileClasspath.filter{ it.exists() }
             .collect { it.isDirectory() ? it : zipTree(it) }
     }
+    with jar
 }
