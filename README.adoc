@@ -9,18 +9,19 @@
    |  __/>  < (__| | (_) | (_| \__ \
     \___/_/\_\___|_|\___/ \__, |___/
                           |___/
-Usage: exclogs [-chvV] [-l1=<startLine>] [-l2=<endLine>] [-o=<outFolder>]
-               [-p=<plainLogFile>] <logCode> <serverUrl>
-      <logCode>              Log code.
-      <serverUrl>            Server URL before /exc.
+Usage: exclogs [-chV] [-l1=<startLine>] [-l2=<endLine>] [-o=<outFolder>]
+               [-p=<plainLogFile>] [-s=<searchPattern>] <logCode> <serverUrl>
+      <logCode>              Log code, or `gui` to use GUI.
+      <serverUrl>            Server URL before `/exc` in path.
   -c, --cache                Use cache.
   -h, --help                 Show this help message and exit.
       -l1, --start=<startLine>
                              Start line.
       -l2, --end=<endLine>   End line.
-  -o, --out=<outFolder>      Output folder.
-  -p, --plain=<plainLogFile> Plain log file.
-  -v, --verbose              Verbose mode.
+  -o, --out=<outFolder>      Output folder for HTML files.
+  -p, --plain=<plainLogFile> Output plain log file.
+  -s, --search=<searchPattern>
+                             String to search
   -V, --version              Print version information and exit.
 ----
 

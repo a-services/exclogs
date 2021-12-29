@@ -52,15 +52,15 @@ public class Main implements Callable<Integer> {
 
     @Option(names = { "-c", "--cache" }, description = "Use cache.")
     boolean useCache;
-        
+
     @Option(names = { "-p", "--plain" }, description = "Output plain log file.")
     String plainLogFile;
 
     @Option(names = { "-s", "--search" }, description = "String to search")
     String searchPattern;
-    
+
     int searchCount = 0;
-            
+
     public static void main(String[] args) {
         new CommandLine(new Main()).execute(args);
     }
@@ -68,7 +68,7 @@ public class Main implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         out.println("-------------------------------------");
-      
+
         /* If the folder for logs is not found, create it.
          */
         File outDir = new File(outFolder);
@@ -94,7 +94,7 @@ public class Main implements Callable<Integer> {
             return okButtonClicked(logCode, plainLogFile);
         }
     }
-    
+
     Integer okButtonClicked(String logCode, String plainLogFile) throws FileNotFoundException, IOException {
         PrintWriter plain = null;
         if (plainLogFile != null) {
@@ -105,14 +105,14 @@ public class Main implements Callable<Integer> {
             out.println("    Search: " + searchPattern);
             searchPattern = searchPattern.toLowerCase();
         }
-        
+
         /* `exc` prints 300 lines ahead of the requested line
          * plus 20 lines back.
          */
         final int EXTRA = 20;
 
         final DecimalFormat dfmt = new DecimalFormat("00000");
-        
+
         int lastLine = -1;
         while (startLine < endLine) {
 
@@ -155,7 +155,7 @@ public class Main implements Callable<Integer> {
             StrUtils.saveStr(outFile, text);
             StartEndLine se = new StartEndLine(text, logCode);
             String ln = se.getPlainLines(lastLine);
-            
+
             if (plain != null) {
                 plain.println(ln);
             }
@@ -167,12 +167,12 @@ public class Main implements Callable<Integer> {
                         int lno = se.start + i;
                         out.println("--- Line " + dfmt.format(lno) + ": " + lines[i]);
                         searchCount++;
-                    }                
+                    }
                 }
             }
-            
+
             lastLine = se.end;
-            
+
             out.println("File saved: " + outFile + " " + se);
             if (startLine != se.start + EXTRA) {
                 break;
@@ -184,11 +184,11 @@ public class Main implements Callable<Integer> {
             plain.close();
             out.println("File saved: " + plainLogFile);
         }
-        
+
         if (searchPattern != null) {
             out.println("Lines found: " + searchCount);
         }
-                
+
         out.println("-------------------------------------");
         return 0;
     }
