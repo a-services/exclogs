@@ -1,7 +1,6 @@
 package com.exadel.exclogs;
 
 import static java.lang.System.*;
-import static com.exadel.exclogs.Main.verbose;
 
 /**
  * We split the file received from `exc`
@@ -19,6 +18,8 @@ public class StartEndLine {
     // Page text, split into lines, for later output to `plainLogFile`
     String[] a;
 
+    final boolean verbose = false;
+    
     StartEndLine(String text, String logCode) {
         final String SEP = "<a class=\"num nounder\" href=\"block\\?name=" + logCode + "&lno=";
         a = text.split(SEP);
@@ -41,6 +42,8 @@ public class StartEndLine {
     String getPlainLines(int lastLine) {
         final String SEP_1 = "</a>";
         final String SEP_2 = "<br>";
+        final String SEP_3 = "<span class=\"cur\">";
+        
         StringBuilder sb = new StringBuilder();
         int i0 = Math.max(1, lastLine - start + 3);
         if (verbose) {
@@ -54,7 +57,12 @@ public class StartEndLine {
             int k2 = a[i].lastIndexOf(SEP_2);
             assert k1 != -1;
             assert k2 != -1;
-            sb.append(a[i].substring(k1 + SEP_1.length(), k2).trim()
+            a[i] = a[i].substring(k1 + SEP_1.length(), k2).trim();
+            int k3 = a[i].indexOf(SEP_3);
+            if (k3 != -1) {
+                a[i] = a[i].substring(k3 + SEP_3.length());
+            }
+            sb.append(a[i]
                 .replace("&lt;", "<").replace("&gt;", ">")
                 .replace("&quot;", "\"").replace("&amp;", "&"))
                 .append('\n');

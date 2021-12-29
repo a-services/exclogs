@@ -1,31 +1,31 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-    group = 'com.exadel'
+group = 'com.exadel'
 
 mainClassName = 'com.exadel.exclogs.Main'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     jcenter()
 }
 
 dependencies {
-    implementation 'info.picocli:picocli:4.6.1'
+    implementation 'info.picocli:picocli:4.6.2'
     testImplementation     'junit:junit:4.13'
 }
 
-jar {
-    baseName = 'exclogs'
-
+task fatjar(type: Jar) {
     manifest {
-        attributes "Main-Class": mainClassName
+        attributes "Main-Class": "com.exadel.exclogs.Main"
     }
-
+    baseName = 'exclogs-all'
     from {
          configurations.compileClasspath.filter{ it.exists() }
             .collect { it.isDirectory() ? it : zipTree(it) }
     }
+    with jar
+}
+
+compileJava {
+    options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
 }
