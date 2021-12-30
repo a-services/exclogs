@@ -27,28 +27,22 @@ Usage: exclogs [-chV] [-l1=<startLine>] [-l2=<endLine>] [-o=<outFolder>]
 
 == Examples
 
-Download log with `con` code to `c.out`, limited to 300 lines:
+Download log with `con` code to `c.out`:
 
 ----
 exclogs con https://apiexpress.appery.io -p=c.out
 ----
 
-Same as above, but limited to 1000 lines:
-
-----
-exclogs con https://apiexpress.appery.io -p=c.out --end=1000
-----
-
 Use GUI mode:
 
 ----
-exclogs gui https://apiexpress.appery.io --end=1000
+exclogs gui https://apiexpress.appery.io
 ----
 
 Find `hello` string:
 
 ----
-exclogs con https://apiexpress.appery.io -s="hello" --end=1000
+exclogs con https://apiexpress.appery.io -s="hello"
 ----
 
 == See also

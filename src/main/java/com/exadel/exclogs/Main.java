@@ -44,10 +44,10 @@ public class Main implements Callable<Integer> {
     @Option(names = { "-l1", "--start" }, description = "Start line.", defaultValue = "1")
     int startLine;
 
-    @Option(names = { "-l2", "--end" }, description = "End line.", defaultValue = "300")
+    @Option(names = { "-l2", "--end" }, description = "End line.", defaultValue = "2147483647")
     int endLine;
 
-    @Option(names = { "-o", "--out" }, description = "Output folder for HTML files.", defaultValue = "exclogs")
+    @Option(names = { "-o", "--out" }, description = "Output folder for HTML files.", defaultValue = ".exclogs")
     String outFolder;
 
     @Option(names = { "-c", "--cache" }, description = "Use cache.")
